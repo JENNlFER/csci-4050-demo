@@ -1,10 +1,4 @@
-public class Query {
-
-    public static final String INSERT_USER =
-            "INSERT INTO users (first_name, last_name, email, password) VALUES (?, ?, ?, ?);";
-
-    public static final String SELECT_USER =
-            "SELECT CONCAT(first_name, ' ', last_name) AS name, status FROM users WHERE status = ?;";
+public class DemoData {
 
     public static final String[] SAMPLE_USERS = {
             "Monique Dill mdill@gmail.com 2gyri4utw",
@@ -17,4 +11,14 @@ public class Query {
             "Tabitha Juergens tjuergens@hotmail.com 101010101",
             "Chung Pehrson thisisan@email.com helloworld"
     };
+
+    public static final String CREATE_USER =
+            "INSERT INTO users (first_name, last_name, email, password) VALUES (?, ?, ?, ?)";
+
+    public static final String SELECT_USER =
+            "SELECT CONCAT(first_name, ' ', last_name) AS name, status FROM users WHERE status = ?";
+
+    public static final String UPDATE_USER_STATUS =
+            "UPDATE users SET status = ? WHERE first_name = ?";
+
 }
