@@ -14,7 +14,7 @@ import java.util.concurrent.Callable;
  *
  * @author Jennifer Teissler
  */
-public abstract class PreparedStatementCallable<T> implements Callable<T> {
+public abstract class CallableStatement<T> implements Callable<T> {
 
     private String query;
     private DataSource db;
@@ -29,7 +29,7 @@ public abstract class PreparedStatementCallable<T> implements Callable<T> {
      * @param db    How to connect to the database
      * @param query SQL string to execute
      */
-    protected PreparedStatementCallable(DataSource db, String query) {
+    protected CallableStatement(DataSource db, String query) {
         this.query = query;
         this.db = db;
     }
@@ -41,7 +41,7 @@ public abstract class PreparedStatementCallable<T> implements Callable<T> {
      * Called automatically in the case of asynchronous execution.
      * Directly Call this function to execute synchronously.
      *
-     * @return The results of {@link PreparedStatementCallable#query()}
+     * @return The results of {@link CallableStatement#query()}
      * @throws SQLException if there is an error connecting to the database
      *                      or in the query code.
      */
@@ -107,3 +107,4 @@ public abstract class PreparedStatementCallable<T> implements Callable<T> {
         prepareStatement(false);
     }
 }
+
